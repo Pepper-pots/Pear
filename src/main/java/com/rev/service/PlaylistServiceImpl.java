@@ -48,8 +48,8 @@ public class PlaylistServiceImpl implements PlaylistService{
 
 	@Override
 	@Transactional
-	public void updatePlaylistById(Playlist playlist) {
-		pd.updatePlaylistById(playlist);
+	public void updatePlaylist(Playlist playlist) {
+		pd.updatePlaylist(playlist); 
 		
 	}
 	

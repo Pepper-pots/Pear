@@ -18,7 +18,7 @@ import com.rev.entity.Library;
 
 import com.rev.service.LibraryService;
 
-//@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class LibraryController {

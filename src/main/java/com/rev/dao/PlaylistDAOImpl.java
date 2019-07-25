@@ -9,6 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
 
@@ -54,8 +55,8 @@ public class PlaylistDAOImpl implements PlaylistDAO {
 	}
 
 	@Override
-	public void updatePlaylistById(Playlist playlist) {
-		sessionFact.getCurrentSession().saveOrUpdate(playlist);
+	public void updatePlaylist(Playlist playlist) {
+		sessionFact.getCurrentSession().update(playlist);
 	}
 	
 	

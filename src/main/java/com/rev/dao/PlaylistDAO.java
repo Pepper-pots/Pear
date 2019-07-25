@@ -12,5 +12,5 @@ public interface PlaylistDAO {
 	public Playlist fetchPlaylistById(long pid);
 	List<Playlist> getAllPlaylist();
 	void addPlaylist(Playlist playlist);
-	void updatePlaylistById(Playlist playlist);
+	void updatePlaylist(Playlist playlist);
 }

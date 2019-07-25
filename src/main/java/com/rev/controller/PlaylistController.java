@@ -4,19 +4,21 @@ package com.rev.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rev.entity.Library;
+
 import com.rev.entity.Playlist;
 import com.rev.service.PlaylistService;
 
-//@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class PlaylistController {
@@ -46,14 +48,15 @@ public List<Playlist> getPlaylists() {
 		System.out.println("reached");
 	    return playlist; 
 }
-//
-//	@PostMapping("/library_entries")
-//	public Library createLibraryEntry(@RequestBody Library library)
-//	{
-//		
-//		ls.createLibraryEntry(library);
-//	return library;
-//	
+	@PutMapping("/playlists")	
+	public Playlist updatePlaylist(@RequestBody Playlist playlist)
+	{System.out.println("update called");
+		System.out.println(playlist.getLibraryEntries());
+		ps.updatePlaylist(playlist);;
+	return playlist;
+		
+	 
+}
 //	 
 //}
 //	

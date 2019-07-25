@@ -10,5 +10,5 @@ public interface PlaylistService {
 	public void deletePlaylistById( long pid);
 	List<Playlist> listAllPlaylists();
 	void createPlaylist(Playlist playlist);
-	void updatePlaylistById(Playlist playlist);
+	void updatePlaylist(Playlist playlist);
 }

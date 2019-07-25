@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="Playlist")
@@ -31,6 +33,7 @@ public class Playlist {
  private String name;
 
 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+@Fetch(value = FetchMode.SUBSELECT)
 @JoinTable(name="playlist_library",
 			joinColumns=@JoinColumn(name="pid"),
 			inverseJoinColumns=@JoinColumn(name="lid"))

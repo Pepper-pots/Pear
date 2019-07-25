@@ -1,18 +1,13 @@
 package com.rev.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -39,11 +34,6 @@ public class Library {
  @Column(name="genre",length=50)
  private String genre;
 
- @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
- @JoinTable(name="library_playlist",
- 			joinColumns=@JoinColumn(name="lid"),
- 			inverseJoinColumns=@JoinColumn(name="pid"))
-		private List<Playlist>  playlists= new ArrayList<>();
 
 public long getId() {
 	return id;
@@ -85,28 +75,21 @@ public void setGenre(String genre) {
 	this.genre = genre;
 }
 
-public List<Playlist> getPlaylists() {
-	return playlists;
-}
-
-public void setPlaylists(List<Playlist> playlists) {
-	this.playlists = playlists;
-}
 
 @Override
 public String toString() {
 	return "Library [id=" + id + ", title=" + title + ", album=" + album + ", artist=" + artist + ", genre=" + genre
-			+ ", playlists=" + playlists + "]";
+			+"]";
 }
 
-public Library( String title, String album, String artist, String genre, List<Playlist> playlists) {
+public Library( String title, String album, String artist, String genre) {
 
 
 	this.title = title;
 	this.album = album;
 	this.artist = artist;
 	this.genre = genre;
-	this.playlists = playlists;
+
 }
 public Library() {
 
